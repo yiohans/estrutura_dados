@@ -14,7 +14,7 @@ def selection_sort(arr):
                 min_element_index = current_element
         arr[start_element], arr[min_element_index] = arr[min_element_index], arr[start_element]
         print(f"Current stage: {arr}")
-    return arr
         
-        
-print(selection_sort([7, 5, 1, 8, 3]))
+arr = [7, 5, 1, 8, 3]
+selection_sort(arr)
+print(f"Final array: {arr}")
