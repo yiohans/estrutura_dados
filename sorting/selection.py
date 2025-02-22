@@ -9,7 +9,7 @@ def selection_sort(arr):
         min_element_index = start_element
         for current_element in range(start_element, n):
             # If the current element is less than current minimum element,
-            # update the minimun element index
+            # update the minimum element index
             if arr[current_element] < arr[min_element_index]:
                 min_element_index = current_element
         arr[start_element], arr[min_element_index] = arr[min_element_index], arr[start_element]
