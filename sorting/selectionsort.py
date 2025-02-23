@@ -32,8 +32,8 @@ def selection_sort(arr : list):
         
         # Place minimum element at start of unsorted portion
         arr[start_element], arr[min_element_index] = arr[min_element_index], arr[start_element]
-        print(f"Current stage: {arr}")
+        print(f"Current state: {arr}")
         
 arr = [7, 5, 1, 8, 3]
 selection_sort(arr)
-print(f"Final array: {arr}")
+print(f"Final state: {arr}")
