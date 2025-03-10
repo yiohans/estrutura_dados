@@ -1,3 +1,7 @@
+import argparse, sys, logging
+
+logger = logging.getLogger(__name__)
+
 def quick_sort(arr: list, start=0, end=None):
     """
     Sorts an array using the quick sort algorithm.
@@ -23,7 +27,7 @@ def quick_sort(arr: list, start=0, end=None):
         end = len(arr)-1
     # If start is less than end, find the pivot index using partition function,
     # then recursively sort the subarrays before and after the pivot
-    print(f"Current state: {arr}")
+    logger.info(f"Current state: {arr}")
     if start < end:
         pivot_index = partition(arr, start, end)
         quick_sort(arr, start, pivot_index-1)
@@ -63,8 +67,7 @@ def partition(arr: list, start: int, end: int) -> int:
     arr[smaller_end_index], arr[end] = arr[end], arr[smaller_end_index]
     return smaller_end_index
     
-arr = [4, 7, 2, 6, 4, 1, 8, 3]
-
-quick_sort(arr)
-
-print(arr)
+if __name__ == "__main__":
+    arr = sys.argv[1:]
+    quick_sort(arr)
+    print(f"Sorted array: {arr}")
