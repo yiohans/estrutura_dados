@@ -1,4 +1,4 @@
-import argparse, sys, logging
+import argparse, logging
 
 logger = logging.getLogger(__name__)
 
@@ -68,6 +68,15 @@ def partition(arr: list, start: int, end: int) -> int:
     return smaller_end_index
     
 if __name__ == "__main__":
-    arr = sys.argv[1:]
+    parser = argparse.ArgumentParser(description="Sort an array using the quick sort algorithm")
+    parser.add_argument("element", nargs="+", type=int, help="Array to be sorted")
+    parser.add_argument("--verbose", "-v", action='store_true', help="Enable debug logging")
+    parser.add_argument("--inverse", "-i", action='store_true', help="Disable all logging")
+    args = parser.parse_args()
+    arr = args.element
+    if args.verbose:
+        logging.basicConfig(level=logging.INFO)
     quick_sort(arr)
+    if args.inverse:
+        arr.reverse()
     print(f"Sorted array: {arr}")
